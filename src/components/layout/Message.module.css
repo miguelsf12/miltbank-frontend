@@ -1,0 +1,43 @@
+.containerMessage {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 40%;
+  z-index: 999999;
+  width: 100%;
+  height: auto;
+  padding: 40px;
+}
+
+.messageErro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: green;
+  background-color: var(--cinza);
+  text-align: center;
+  border-radius: 30px;
+  padding: 20px;
+  font-size: 1.3em;
+  font-weight: 900;
+}
+
+.messageErro.error {
+  color: red;
+  background-color: var(--cinza);
+}
+
+.btn_hide {
+  border: none;
+  border-radius: 50px;
+  color: var(--laranja);
+  background-color: var(--branco);
+  width: 200px;
+  height: 74px;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 1.25em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}

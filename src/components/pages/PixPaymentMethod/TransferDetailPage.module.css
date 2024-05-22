@@ -1,0 +1,15 @@
+.btn_back {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_back,
+.btn_back i,
+.btn_back span {
+  text-decoration: none;
+  color: var(--laranja);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}

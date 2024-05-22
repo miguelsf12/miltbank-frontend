@@ -1,0 +1,81 @@
+.form_control.login input[name="password"],
+.form_control.login input[name="cpf"] {
+  padding: 25px;
+  margin-bottom: 35px;
+  width: 100%;
+  height: 74px;
+  border-radius: 50px;
+  border: none;
+  text-decoration: none;
+
+  border-radius: 100px;
+  background: var(--azul-escuro);
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 1.25em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.form {
+  margin-top: 40px;
+}
+
+.btn_back,
+.btn_back i,
+.btn_back span {
+  text-decoration: none;
+  color: var(--branco);
+  margin-top: 20px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.btn_back {
+  margin-right: 15px;
+}
+
+.btn_login {
+  border-radius: 50px;
+  background: var(--branco);
+  width: 100%;
+  height: 74px;
+  padding: 25px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  border: none;
+
+  color: var(--laranja);
+  font-size: 1.25em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.other {
+  display: flex;
+  flex-direction: row;
+  color: #FFF;
+  column-gap: 10px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+.other_options {
+  display: flex;
+  float: right;
+  color: var(--branco);
+  font-size: 1.0625em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+.other.login .other_options {
+  width: 165px;
+}

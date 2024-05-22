@@ -1,0 +1,205 @@
+import styles from './Home.module.css'
+import useBackgroundColor from '../../hooks/useBackgroundColor'
+import { useState, useContext, useEffect } from 'react'
+import { Context } from '../../context/UserContext'
+import { Link, useNavigate } from 'react-router-dom'
+import PulseLoader from "react-spinners/PulseLoader";
+
+import Logo from '../../assets/img/logo.png'
+import api from '../../utils/api'
+
+function Home() {
+  const { logout } = useContext(Context)
+  const [visibility, setVisibility] = useState(false)
+  const [showMore, setShowMore] = useState(false)
+  const navigate = useNavigate()
+  const [userData, setUserData] = useState(null)
+  const [userLoaded, setUserLoaded] = useState(false)
+  const [transferences, setTransferences] = useState([])
+
+  // const [transferMade, setTransferMade] = useState(null)
+  // const [transferReceived, setTransferReceived] = useState(null)
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      return navigate('/login')
+    }
+
+    api.get('/users/checkuser', {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`
+      }
+    }).then((response) => {
+      setUserData(response.data);
+      setUserLoaded(true);
+    })
+
+    api.get('/payments/gettransferences', {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`
+      }
+    }).then((response) => {
+      setTransferences(response.data)
+    })
+
+  }, [navigate])
+
+  const expandFuncs = () => {
+    setShowMore(true)
+  }
+
+  const closeFuncs = () => {
+    setShowMore(false)
+  }
+
+  const { backgroundColor } = useBackgroundColor()
+
+  const toggleAmountVisibility = () => {
+    setVisibility(!visibility); // Inverte o estado de visibilidade
+  }
+
+  return (
+    <section className={styles.containerHome}>
+      <nav>
+        <div className={styles.logoImage}>
+          <img src={Logo} alt="Logo Milt Bank" />
+        </div>
+        <i onClick={toggleAmountVisibility} className={`bi ${visibility ? 'bi-eye-slash' : 'bi-eye'} ${styles.hideAmount}`}></i>
+
+        <div className="dropdown-center">
+          <i className="bi bi-three-dots-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
+          <ul className="dropdown-menu">
+            <Link to={'/myaccount'} className="dropdown-item">Minha conta</Link>
+            <Link to={'/configurations'} className="dropdown-item">Configurações</Link>
+            <li onClick={logout} className="dropdown-item">Sair <i className="bi bi-box-arrow-left"></i></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div className={styles.content}>
+        {!userLoaded ? (
+          <>
+            <p className={styles.username}>Olá, <PulseLoader color="#F28907" /></p>
+            <p className={styles.amountField}>R$ <PulseLoader color="#F28907" /></p>
+          </>
+        ) : (
+          <>
+            <p className={styles.username}>Olá, {userData.name}!</p>
+            <p className={styles.amountField}>R$ <span className={styles.amount} id="amount"> {visibility ? '-----' : userData.amount}</span></p>
+          </>
+        )}
+
+        <div className={styles.transactions}>
+          {(!transferences || transferences.length === 0) ? (
+            <p className={styles.NotTransference}>Não há transferências</p>
+          ) : (
+            <>
+              <p className={styles.latestActions}>Últimas ações</p>
+              <div className={styles.transactionItems}>
+                {transferences.transferMade.map((transfer, index) => (
+                  <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
+                    <p className={styles.transactionBeneficed}>{transfer.payer.name}</p>
+                    <p className={`${styles.transactionAmount} ${styles.transactionAmountMade}`}>-R$ <span className={styles.transactionAmountMade}>{transfer.amount}</span></p>
+                  </Link>
+                ))}
+                {transferences.transferReceived.map((transfer, index) => (
+                  <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
+                    <p className={styles.transactionBeneficed}>{transfer.payer.name}</p>
+                    <p className={`${styles.transactionAmount} ${styles.transactionAmountReceived}`}>R$ <span className={styles.transactionAmountReceived}>{transfer.amount}</span></p>
+                  </Link>
+                ))}
+                <a className={styles.moreTransactions} href="#">VER TUDO</a>
+              </div>
+            </>
+          )}
+        </div>
+
+
+        <div className={styles.functionalities}>
+          <p className={styles.text_finances}>Finanças</p>
+
+          {!showMore && (
+            < div className={styles.finances}>
+              <Link to={'/pix'} className={styles.financeLink}>
+                <div className={`${styles.pix} ${styles.functionality}`}>
+                  <i className="bi bi-asterisk"></i>
+                  <p className={styles.textFinanceType}>Pix</p>
+                </div>
+              </Link>
+              <a href="" className={styles.financeLink}>
+                <div className={`${styles.pay} ${styles.functionality}`}>
+                  <i className="bi bi-upc"></i>
+                  <p className={styles.textFinanceType}>Pagar</p>
+                </div>
+              </a>
+              <a href="" className={styles.financeLink}>
+                <div className={`${styles.card} ${styles.functionality}`}>
+                  <i className="bi bi-credit-card"></i>
+                  <p className={styles.textFinanceType}>Cartões</p>
+                </div>
+              </a>
+              <div className={`${styles.show_more} ${styles.functionality}`} onClick={expandFuncs}>
+                <i className="bi bi-caret-left-fill"></i>
+                <p className={styles.textFinanceType}>Mais</p>
+              </div>
+            </div>
+          )}
+
+          {showMore && (
+            <div className={`${styles.container} ${styles.text_center}`}>
+
+              <i className={`bi bi-caret-right-fill ${styles.btn_close}`} onClick={closeFuncs}></i>
+
+              <div className="row">
+                <div className="col-3">
+                  <a href="" className={styles.financeLink}>
+                    <div className={`${styles.pay} ${styles.functionality}`}>
+                      <i className="bi bi-upc"></i>
+                      <p className={styles.textFinanceType}>Pagar</p>
+                    </div>
+                  </a>
+                </div>
+                <div className="col-3">
+                  <a href="" className={styles.financeLink}>
+                    <div className={`${styles.card} ${styles.functionality}`}>
+                      <i className="bi bi-credit-card"></i>
+                      <p className={styles.textFinanceType}>Cartões</p>
+                    </div>
+                  </a>
+                </div>
+                <div className="col-3">
+                  <a href="" className={styles.financeLink}>
+                    <div className={`${styles.card} ${styles.functionality}`}>
+                      <i className="bi bi-credit-card"></i>
+                      <p className={styles.textFinanceType}>Transferir</p>
+                    </div>
+                  </a>
+                </div>
+                <div className="col-3">
+                  <a href="" className={styles.financeLink}>
+                    <div className={`${styles.card} ${styles.functionality}`}>
+                      <i className="bi bi-credit-card"></i>
+                      <p className={styles.textFinanceType}>Câmbio</p>
+                    </div>
+                  </a>
+                </div>
+                <div className="col-3">
+                  <a href="" className={styles.financeLink}>
+                    <div className={`${styles.card} ${styles.functionality}`}>
+                      <i className="bi bi-credit-card"></i>
+                      <p className={styles.textFinanceType}>Cartões</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      </div>
+    </section >
+  )
+}
+
+export default Home

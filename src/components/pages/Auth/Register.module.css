@@ -1,0 +1,131 @@
+.btn_back,
+.btn_back i,
+.btn_back span {
+  text-decoration: none;
+  color: var(--branco);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.btn_back {
+  margin-right: 15px;
+}
+
+.form_control {
+  display: flex;
+  flex-direction: column;
+  width: 16.875em;
+  padding: 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.carouselSlide {
+  margin-top: 40px;
+}
+
+.form_control input[name="name"],
+.form_control input[name="birth_date"] {
+  padding: 25px;
+  margin-bottom: 35px;
+  width: 100%;
+  height: 74px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  text-decoration: none;
+
+  border-radius: 100px;
+  background: var(--azul-escuro);
+  color: var(--branco);
+  font-size: 1.1em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+::-webkit-calendar-picker-indicator {
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+  filter: invert(1) brightness(100%) saturate(100%);
+}
+
+.carousel_btn_next,
+.carousel_btn_prev,
+.btn_login,
+.btn_register {
+  border-radius: 50px;
+  background: var(--branco);
+  width: 100%;
+  height: 74px;
+  padding: 25px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  border: none;
+
+  color: var(--laranja);
+  font-size: 1.25em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.imageRegister {
+  width: 300px;
+  height: 300px;
+}
+
+/* REGISTER STAGE2 */
+
+.form_control.stage2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  padding: 25px;
+  height: 370px;
+  border-radius: 20px;
+  background: var(--azul-escuro);
+  margin-bottom: 20px;
+}
+
+.form_control.stage2 input[name="cpf"],
+.form_control.stage2 input[name="email"],
+.form_control.stage2 input[name="password"] {
+  color: var(--branco);
+  font-size: 1.25em;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 900;
+  flex-shrink: 0;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.00);
+  margin-bottom: 15px;
+}
+
+.form_control.stage2 input[name="confirmPassword"] {
+  font-size: 1.1em;
+  color: var(--branco);
+  font-style: normal;
+  font-weight: 900;
+  flex-shrink: 0;
+  outline: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.00);
+  margin-bottom: 15px;
+}
+
+.other_options {
+  display: flex;
+  float: right;
+  color: var(--branco);
+  font-size: 1.0625em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-decoration-line: underline;
+}

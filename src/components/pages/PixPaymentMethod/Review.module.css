@@ -1,0 +1,82 @@
+.container {
+  width: 85vw;
+}
+
+.btn_back {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_back,
+.btn_back i,
+.btn_back span {
+  text-decoration: none;
+  color: var(--laranja);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.text_header_pix_pay {
+  font-size: 1.2em;
+  font-weight: 900;
+  text-align: center;
+}
+
+.containerReview form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_payPix {
+  border-radius: 50px;
+  background: var(--laranja);
+  width: 75%;
+  height: 74px;
+  padding: 25px;
+  margin-top: 20px;
+  flex-shrink: 0;
+  border: none;
+
+  color: var(--branco);
+  font-size: 1.25em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.receiver {
+  margin-top: 20px;
+  width: 90%;
+  border: 1px solid var(--cinza);
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.receiverTitle {
+  font-size: 1.7em;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.receiverName,
+.receiverCpf,
+.receiverInstitution {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--azul-escuro);
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.receiverKey {
+  display: flex;
+  flex-direction: column;
+  color: var(--azul-escuro);
+  font-weight: 700;
+  font-size: 1.4em;
+}

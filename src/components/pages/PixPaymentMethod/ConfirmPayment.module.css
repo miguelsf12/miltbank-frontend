@@ -1,0 +1,124 @@
+.container {
+  width: 85vw;
+}
+
+.containerPixPayConfirm form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_back {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_back,
+.btn_back i,
+.btn_back span {
+  text-decoration: none;
+  color: var(--laranja);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.text_header_pix_pay {
+  font-size: 1.2em;
+  font-weight: 900;
+  text-align: center;
+}
+
+.rowAmount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-weight: 700;
+}
+
+.hideAmount {
+  font-size: 2em;
+  font-weight: 700;
+  padding-left: 12px;
+  color: var(--branco);
+  height: 53px;
+}
+
+.amountPay {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin: 0px;
+}
+
+.amountField {
+  color: var(--branco);
+  margin: 0px;
+  padding: 5px;
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.amountContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px;
+  background-color: var(--azul-claro);
+  border-radius: 8px;
+}
+
+.receiverName {
+  margin-top: 20px;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+input[name="amount"] {
+  text-align: center;
+  text-decoration: underline 15px;
+  margin: 0 auto;
+  margin-top: 20px;
+  /* width: 11em; */
+  /* height: 2em; */
+  border-radius: 50px;
+  color: var(--laranja);
+  border: none;
+  /* background: var(--azul-escuro); */
+  font-size: 2em;
+  font-weight: 900;
+  outline: none;
+}
+
+input[name="amount"]::placeholder {
+  color: var(--laranja);
+}
+
+#amountPay {
+  padding-left: 10px;
+}
+
+label[for="amountPay"] {
+  padding-left: 20px;
+  font-size: 1.5em;
+}
+
+.btn_payPix {
+  border-radius: 50px;
+  background: var(--laranja);
+  width: 75%;
+  height: 74px;
+  padding: 25px;
+  margin-top: 20px;
+  flex-shrink: 0;
+  border: none;
+
+  color: var(--branco);
+  font-size: 1.25em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}

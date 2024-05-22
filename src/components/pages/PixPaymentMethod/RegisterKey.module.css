@@ -1,0 +1,87 @@
+.form_control {
+  display: flex;
+  flex-direction: column;
+  width: 16.875em;
+  padding: 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.containerPixPay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.btn_back {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_back,
+.btn_back i,
+.btn_back span {
+  text-decoration: none;
+  color: var(--azul-escuro);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.btn_back i {
+  margin-right: 15px;
+}
+
+input[name="pixCpf"],
+input[name="pixTelefone"],
+input[name="pixEmail"]{
+  padding: 25px;
+  margin-bottom: 35px;
+  width: 100%;
+  height: 74px;
+  border-radius: 12px;
+  border: 1px solid var(--azul-escuro);
+  color: var(--laranja);
+
+  background: var(--azul-escuro);
+  font-size: 1.3em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.pixType {
+  border-bottom: 1px solid var(--azul-claro);
+  margin-bottom: 20px;
+}
+
+.pixCpf,
+.pixTelefone,
+.pixEmail {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  color: var(--azul-escuro);
+  /* border-bottom: 1px solid var(--azul-claro); */
+}
+
+.btn_registerKey {
+  border-radius: 50px;
+  background: var(--laranja);
+  width: 100%;
+  height: 74px;
+  padding: 25px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  border: none;
+
+  color: var(--azul-escuro);
+  font-size: 1.25em;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}

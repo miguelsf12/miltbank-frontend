@@ -1,0 +1,75 @@
+.container {
+  width: 85vw;
+}
+
+.btn_back {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_back,
+.btn_back i,
+.btn_back span {
+  text-decoration: none;
+  color: var(--laranja);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.text_header_pix_pay {
+  font-size: 1.2em;
+  font-weight: 900;
+  text-align: center;
+}
+
+.containerConcluded {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.transferAmount {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.inputDisable {
+  background-color: transparent;
+}
+
+.sendPix {
+  font-size: 1.2em;
+  font-weight: 900;
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+}
+
+.receiver {
+  margin-top: 20px;
+  width: 90%;
+  /* border: 1px solid var(--cinza); */
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.receiverTitle {
+  font-size: 1.7em;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.receiverName,
+.receiverCpf,
+.receiverInstitution {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--azul-escuro);
+  font-weight: 700;
+  font-size: 1.2em;
+}
