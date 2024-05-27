@@ -99,13 +99,13 @@ function Home() {
               <div className={styles.transactionItems}>
                 {transferences.transferMade.map((transfer, index) => (
                   <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
-                    <p className={styles.transactionBeneficed}>{transfer.payer.name}</p>
+                    <p className={styles.transactionBeneficed}>Pix enviado para {transfer.receiver.name}</p>
                     <p className={`${styles.transactionAmount} ${styles.transactionAmountMade}`}>-R$ <span className={styles.transactionAmountMade}>{transfer.amount}</span></p>
                   </Link>
                 ))}
                 {transferences.transferReceived.map((transfer, index) => (
                   <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
-                    <p className={styles.transactionBeneficed}>{transfer.payer.name}</p>
+                    <p className={styles.transactionBeneficed}>Pix recebido de {transfer.payer.name}</p>
                     <p className={`${styles.transactionAmount} ${styles.transactionAmountReceived}`}>R$ <span className={styles.transactionAmountReceived}>{transfer.amount}</span></p>
                   </Link>
                 ))}

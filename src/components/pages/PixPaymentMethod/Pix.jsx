@@ -96,7 +96,7 @@ function Pix() {
           <PulseLoader color="#F28907" />
         ) : (
           <div className={styles.keyField}>
-            userData.pix ? (
+            {!userData.pix ? (
               <p className={styles.keyType}>Adicione uma chave Pix</p>
             ) : (
               <>
@@ -104,10 +104,8 @@ function Pix() {
                 <p className={styles.key}>{userData.pix.chave}</p>
               </>
             )}
-
           </div>
         )}
-
       </div>
 
       <div className={styles.transactions}>
@@ -119,13 +117,13 @@ function Pix() {
             <div className={styles.transactionItems}>
               {transferences.transferMade.map((transfer, index) => (
                 <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
-                  <p className={styles.transactionBeneficed}>{transfer.payer.name}</p>
+                  <p className={styles.transactionBeneficed}>Pix enviado para {transfer.receiver.name}</p>
                   <p className={`${styles.transactionAmount} ${styles.transactionAmountMade}`}>-R$ <span className={styles.transactionAmountMade}>{transfer.amount}</span></p>
                 </Link>
               ))}
               {transferences.transferReceived.map((transfer, index) => (
                 <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
-                  <p className={styles.transactionBeneficed}>{transfer.payer.name}</p>
+                  <p className={styles.transactionBeneficed}>Pix recebido de {transfer.payer.name}</p>
                   <p className={`${styles.transactionAmount} ${styles.transactionAmountReceived}`}>R$ <span className={styles.transactionAmountReceived}>{transfer.amount}</span></p>
                 </Link>
               ))}
