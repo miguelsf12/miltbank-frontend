@@ -1,3 +1,7 @@
+.container {
+  max-width: 90vw;
+}
+
 .btn_back {
   display: flex;
   flex-direction: row;
@@ -12,4 +16,148 @@
   font-style: normal;
   font-weight: 900;
   line-height: normal;
+}
+
+.text_header_pix_pay {
+  margin: 0 auto;
+  font-size: 1.2em;
+  font-weight: 900;
+  text-align: center;
+}
+
+.containerConcluded {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sendPix {
+  font-size: 3em;
+  font-weight: 900;
+  text-align: center;
+  margin: 10px 0px 0px 0px;
+  color: green;
+  font-weight: 900;
+}
+
+.transferAmount {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.inputDisable {
+  background-color: transparent;
+}
+
+.aboutTransfer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 0px;
+  width: 100%;
+}
+
+.aboutTitle {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.aboutDate,
+.aboutTime {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--azul-escuro);
+  font-weight: 700;
+  font-size: 1em;
+  width: 100%;
+}
+
+.aboutDate p {
+  display: flex;
+  flex-direction: row;
+}
+
+.aboutDate span {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 100%;
+}
+
+.receiver,
+.payer {
+  margin-top: 20px;
+  width: 100%;
+  /* border: 1px solid var(--cinza); */
+  border-radius: 20px;
+  /* padding: 16px; */
+}
+
+.receiverTitle,
+.payerTitle {
+  font-size: 1.7em;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.receiverName,
+.receiverCpf,
+.receiverInstitution,
+.payerName,
+.payerCpf,
+.payerInstitution {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--azul-escuro);
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.receiverKey {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--azul-escuro);
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.btn_generate {
+  border-radius: 50px;
+  background: var(--laranja);
+  width: 75%;
+  height: 74px;
+  padding: 25px;
+  margin-top: 20px;
+  flex-shrink: 0;
+  border: none;
+
+  color: var(--branco);
+  font-size: 1.25em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.btn_paymentconcluded {
+  border-radius: 50px;
+  background: var(--laranja);
+  width: 75%;
+  height: 74px;
+  padding: 25px;
+  margin-top: 20px;
+  flex-shrink: 0;
+  border: none;
+
+  color: var(--branco);
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+  text-align: center;
 }
