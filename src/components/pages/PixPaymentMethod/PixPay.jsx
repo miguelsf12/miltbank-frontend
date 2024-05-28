@@ -12,8 +12,6 @@ function PixPay() {
   const [userLoaded, setUserLoaded] = useState(false)
   const navigate = useNavigate()
 
-
-
   function handleChange(e) {
     setKey({ ...key, [e.target.name]: e.target.value })
   }

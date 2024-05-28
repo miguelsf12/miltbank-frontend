@@ -90,6 +90,14 @@ nav {
   font-size: 1.1em;
 }
 
+.transactionAmountMade {
+  color: var(--branco);
+}
+
+.transactionAmountReceived {
+  color: rgb(18, 231, 18);
+}
+
 .moreTransactions {
   position: absolute;
   bottom: -30px;
@@ -191,14 +199,6 @@ nav {
   font-weight: 600;
   color: var(--azul-escuro);
   float: left;
-}
-
-.transactionAmountMade {
-  color: var(--branco);
-}
-
-.transactionAmountReceived {
-  color: rgb(18, 231, 18);
 }
 
 .link {

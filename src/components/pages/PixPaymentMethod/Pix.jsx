@@ -40,6 +40,12 @@ function Pix() {
     return <div>Carregando...</div>
   }
 
+  // Combina as transferências e ordena por data
+  const combinedTransfers = [...transferences.transferMade, ...transferences.transferReceived]
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+  const latestTransfers = combinedTransfers.slice(0, 4);
+
   return (
     <section className={styles.container}>
       <div className="row">
@@ -109,25 +115,29 @@ function Pix() {
       </div>
 
       <div className={styles.transactions}>
-        {(!transferences || transferences.length === 0) ? (
+        {latestTransfers.length === 0 ? (
           <p className={styles.NotTransference}>Não há transferências</p>
         ) : (
           <>
             <p className={styles.latestActions}>Últimas ações</p>
             <div className={styles.transactionItems}>
-              {transferences.transferMade.map((transfer, index) => (
-                <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
-                  <p className={styles.transactionBeneficed}>Pix enviado para {transfer.receiver.name}</p>
-                  <p className={`${styles.transactionAmount} ${styles.transactionAmountMade}`}>-R$ <span className={styles.transactionAmountMade}>{transfer.amount}</span></p>
-                </Link>
-              ))}
-              {transferences.transferReceived.map((transfer, index) => (
-                <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
-                  <p className={styles.transactionBeneficed}>Pix recebido de {transfer.payer.name}</p>
-                  <p className={`${styles.transactionAmount} ${styles.transactionAmountReceived}`}>R$ <span className={styles.transactionAmountReceived}>{transfer.amount}</span></p>
-                </Link>
-              ))}
-              <a className={styles.moreTransactions} href="#">VER TUDO</a>
+              {latestTransfers.map((transfer, index) => {
+                const isMade = transferences.transferMade.includes(transfer);
+                const amountClass = isMade ? styles.transactionAmountMade : styles.transactionAmountReceived;
+                const amountPrefix = isMade ? '-R$' : 'R$';
+
+                return (
+                  <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
+                    <p className={styles.transactionBeneficed}>
+                      {isMade ? `Pix enviado para ${transfer.receiver.name}` : `Pix recebido de ${transfer.payer.name}`}
+                    </p>
+                    <p className={`${styles.transactionAmount} ${amountClass}`}>
+                      {amountPrefix} <span className={amountClass}>{transfer.amount}</span>
+                    </p>
+                  </Link>
+                )
+              })}
+              <Link to={'/all-transfers'} className={styles.moreTransactions}>VER TUDO</Link>
             </div>
           </>
         )}
