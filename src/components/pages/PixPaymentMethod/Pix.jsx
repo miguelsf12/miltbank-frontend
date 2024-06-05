@@ -67,20 +67,20 @@ function Pix() {
           </Link>
         </div>
         <div className="col-4">
-          <a href="" className={styles.registerKeyLink}>
+          <Link to={""} className={styles.registerKeyLink}>
             <div className={styles.registerKey}>
               <i className="bi bi-key"></i>
               <p className={styles.textFinanceType}>Extrato completo</p>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="col-4">
-          <a href="" className={styles.registerKeyLink}>
+          <Link to={""} className={styles.registerKeyLink}>
             <div className={styles.registerKey}>
               <i className="bi bi-key"></i>
               <p className={styles.textFinanceType}>Configurações</p>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className={styles.containerPix}>

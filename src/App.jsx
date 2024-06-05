@@ -18,6 +18,7 @@ import ConfirmPayment from './components/pages/PixPaymentMethod/ConfirmPayment'
 import Review from './components/pages/PixPaymentMethod/Review'
 import PaymentConcluded from './components/pages/PixPaymentMethod/PaymentConcluded'
 import TransferDetailPage from './components/pages/PixPaymentMethod/TransferDetailPage'
+import ViewAllTransfers from './components/pages/PixPaymentMethod/ViewAllTransfers'
 
 // Context
 import { UserProvider } from './context/UserContext'
@@ -29,6 +30,7 @@ function App() {
         <Container>
           <Message />
           <Routes>
+            <Route path='/all-transfers' element={<ViewAllTransfers />}></Route>
             <Route path='/transference/:id' element={<TransferDetailPage />}></Route>
             <Route path='/paymentconcluded/:id' element={<PaymentConcluded />}></Route>
             <Route path='/review' element={<Review />}></Route>
