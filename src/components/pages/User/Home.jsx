@@ -5,7 +5,7 @@ import { Context } from '../../../context/UserContext'
 import { Link, useNavigate } from 'react-router-dom'
 import PulseLoader from "react-spinners/PulseLoader";
 
-import Logo from '../../assets/img/logo.png'
+import Logo from '../../../assets/img/logo.png'
 import api from '../../../utils/api'
 
 function Home() {
