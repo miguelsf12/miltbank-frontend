@@ -1,12 +1,12 @@
 import styles from './Home.module.css'
-import useBackgroundColor from '../../hooks/useBackgroundColor'
+import useBackgroundColor from '../../../hooks/useBackgroundColor'
 import { useState, useContext, useEffect } from 'react'
-import { Context } from '../../context/UserContext'
+import { Context } from '../../../context/UserContext'
 import { Link, useNavigate } from 'react-router-dom'
 import PulseLoader from "react-spinners/PulseLoader";
 
 import Logo from '../../assets/img/logo.png'
-import api from '../../utils/api'
+import api from '../../../utils/api'
 
 function Home() {
   const { logout } = useContext(Context)

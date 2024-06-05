@@ -35,7 +35,8 @@ function Pix() {
 
   }, [navigate])
 
-  if (!userLoaded) {
+  // Renderizar o componente somente se as transações estiverem disponíveis
+  if (!userLoaded || !transferences.transferMade || !transferences.transferReceived) {
     // Renderize algum indicador de carregamento
     return <div>Carregando...</div>
   }
