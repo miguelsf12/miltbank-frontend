@@ -5,10 +5,12 @@ import api from '../../../utils/api'
 import InputCurrency from '../../form/InputCurrency'
 import { Context } from '../../../context/UserContext'
 import PulseLoader from "react-spinners/PulseLoader";
+import logo from '../../../assets/img/logo.png'
 
 function Review() {
   const [receiverData, setReceiverData] = useState({})
   const [receiverLoaded, setReceiverLoaded] = useState(false)
+  const [loading, setLoading] = useState(false)
   const location = useLocation()
   const chavePIX = new URLSearchParams(location.search).get('key')
   const amountPay = new URLSearchParams(location.search).get('amount')
@@ -47,9 +49,18 @@ function Review() {
   }
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+    setLoading(true); // Aqui definimos loading como true quando o formulário é submetido
 
-    makePayment(amount, receiverData)
+    setTimeout(() => {
+      makePayment(amount, receiverData)
+        .then(() => {
+          setLoading(false); // Aqui definimos loading como false após o login ser concluído
+        })
+        .catch(() => {
+          setLoading(false);
+        });
+    }, 2000);
   }
 
   useEffect(() => {
@@ -75,6 +86,15 @@ function Review() {
 
   return (
     <section className={styles.container}>
+      {loading && (
+        <div className={styles.load}>
+
+          <img className={styles.loadImg} src={logo} alt="" />
+
+        </div>
+      )}
+
+
       <div className="row">
         <div className="col-4">
           <Link to={'/pix'} className={styles.btn_back}><i className="bi bi-caret-left-fill"></i>Voltar</Link>

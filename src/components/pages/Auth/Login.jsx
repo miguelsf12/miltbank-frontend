@@ -27,7 +27,7 @@ function Login() {
         });
     }, 2000);
   }
-  
+
   function handleChange(e) {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
@@ -61,7 +61,7 @@ function Login() {
             placeholder="SENHA"
             handleOnChange={handleChange}
           />
-          
+
           <input className={styles.btn_login} type="submit" value="ENTRAR" />
         </div>
       </form>

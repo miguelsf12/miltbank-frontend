@@ -5,4 +5,28 @@
   width: 100vw;
   height: 100vh;
   background-color: var(--laranja);
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.loadImg {
+  animation: blink 1s infinite;
+  /* Define a animação de piscar */
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+    /* Totalmente visível */
+  }
+
+  50% {
+    opacity: 0;
+    /* Totalmente invisível */
+  }
 }
