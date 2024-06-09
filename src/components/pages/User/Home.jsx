@@ -4,6 +4,7 @@ import { useState, useContext, useEffect } from 'react'
 import { Context } from '../../../context/UserContext'
 import { Link, useNavigate } from 'react-router-dom'
 import PulseLoader from "react-spinners/PulseLoader";
+import Options from '../../Details/Options'
 
 import Logo from '../../../assets/img/logo.png'
 import api from '../../../utils/api'
@@ -72,15 +73,7 @@ function Home() {
           <img src={Logo} alt="Logo Milt Bank" />
         </div>
         <i onClick={toggleAmountVisibility} className={`bi ${visibility ? 'bi-eye-slash' : 'bi-eye'} ${styles.hideAmount}`}></i>
-
-        <div className="dropdown-center">
-          <i className="bi bi-three-dots-vertical" data-bs-toggle="dropdown" aria-expanded="false"></i>
-          <ul className="dropdown-menu">
-            <Link to={'/myaccount'} className="dropdown-item">Minha conta</Link>
-            <Link to={'/configurations'} className="dropdown-item">Configurações</Link>
-            <li onClick={logout} className="dropdown-item">Sair <i className="bi bi-box-arrow-left"></i></li>
-          </ul>
-        </div>
+        <Options />
       </nav>
 
       <div className={styles.content}>
