@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import api from '../../../utils/api'
 import PulseLoader from "react-spinners/PulseLoader"
+import Back from '../../Details/Back'
 
 function Pix() {
   const [userData, setUserData] = useState(null)
@@ -51,7 +52,7 @@ function Pix() {
     <section className={styles.container}>
       <div className="row">
         <div className="col-4">
-          <a href="/home" className={styles.btn_back}><i className="bi bi-caret-left-fill"></i>Voltar</a>
+          <Back toWhere={'/home'} />
         </div>
         <div className="col-4">
           <p className={styles.text_header_pix}>Pix</p>

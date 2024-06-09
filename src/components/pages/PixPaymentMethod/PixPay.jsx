@@ -4,6 +4,7 @@ import Input from '../../form/Input';
 import styles from './PixPay.module.css'
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../../../utils/api';
+import Back from '../../Details/Back'
 
 function PixPay() {
   const [key, setKey] = useState({})
@@ -48,7 +49,7 @@ function PixPay() {
     <section className={styles.container}>
       <div className="row">
         <div className="col-4">
-          <Link to={'/pix'} className={styles.btn_back}><i className="bi bi-caret-left-fill"></i>Voltar</Link>
+          <Back toWhere={'/pix'} />
         </div>
         <div className="col-4">
           <p className={styles.text_header_pix_pay}>Pagar Com Pix</p>

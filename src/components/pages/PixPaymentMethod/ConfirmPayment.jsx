@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import PulseLoader from "react-spinners/PulseLoader"
 import api from '../../../utils/api'
 import InputCurrency from '../../form/InputCurrency'
+import Back from '../../Details/Back'
 
 function ConfirmPayment() {
   const [userData, setUserData] = useState(null)
@@ -92,7 +93,7 @@ function ConfirmPayment() {
     <section className={styles.container}>
       <div className="row">
         <div className="col-4">
-          <Link to={'/pix'} className={styles.btn_back}><i className="bi bi-caret-left-fill"></i>Voltar</Link>
+          <Back toWhere={'/pix'} />
         </div>
         <div className="col-4">
           <p className={styles.text_header_pix_pay}>Pagar Com Pix</p>

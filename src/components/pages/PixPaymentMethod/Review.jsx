@@ -6,6 +6,7 @@ import InputCurrency from '../../form/InputCurrency'
 import { Context } from '../../../context/UserContext'
 import PulseLoader from "react-spinners/PulseLoader";
 import logo from '../../../assets/img/logo.png'
+import Back from '../../Details/Back'
 
 function Review() {
   const [receiverData, setReceiverData] = useState({})
@@ -97,7 +98,7 @@ function Review() {
 
       <div className="row">
         <div className="col-4">
-          <Link to={'/pix'} className={styles.btn_back}><i className="bi bi-caret-left-fill"></i>Voltar</Link>
+          <Back toWhere={'/pix'} />
         </div>
         <div className="col-4">
           <p className={styles.text_header_pix_pay}>Pagar Com Pix</p>

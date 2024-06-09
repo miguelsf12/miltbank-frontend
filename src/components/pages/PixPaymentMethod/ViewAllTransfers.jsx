@@ -3,6 +3,7 @@ import { Context } from "../../../context/UserContext"
 import { Link, useNavigate } from "react-router-dom"
 import api from "../../../utils/api"
 import styles from './ViewAllTransfers.module.css'
+import Back from "../../Details/Back"
 
 function ViewAllTransfers() {
   const navigate = useNavigate()
@@ -90,7 +91,7 @@ function ViewAllTransfers() {
     <section className={styles.container}>
       <div className={`row align-items-center ${styles.header}`}>
         <div className="col-4 d-flex justify-content-start">
-          <a href="/home" className={styles.btn_back}><i className="bi bi-caret-left-fill"></i>Voltar</a>
+          <Back toWhere={'/home'} />
         </div>
         <div className="col-4 d-flex justify-content-center">
           <p className={styles.text_header}>Extrato</p>
