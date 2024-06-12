@@ -3,11 +3,16 @@ import useBackgroundColor from '../../../hooks/useBackgroundColor'
 import { useState, useContext, useEffect } from 'react'
 import { Context } from '../../../context/UserContext'
 import { Link, useNavigate } from 'react-router-dom'
-import PulseLoader from "react-spinners/PulseLoader";
+import PulseLoader from 'react-spinners/PulseLoader'
 import Options from '../../Details/Options'
 
 import Logo from '../../../assets/img/logo.png'
 import api from '../../../utils/api'
+
+import PixIcon from '@mui/icons-material/Pix'
+import CreditCardIcon from '@mui/icons-material/CreditCard'
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 
 function Home() {
   const { logout } = useContext(Context)
@@ -19,7 +24,7 @@ function Home() {
   const [transferences, setTransferences] = useState({
     transferMade: [],
     transferReceived: []
-  });
+  })
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -32,8 +37,8 @@ function Home() {
         Authorization: `Bearer ${JSON.parse(token)}`
       }
     }).then((response) => {
-      setUserData(response.data);
-      setUserLoaded(true);
+      setUserData(response.data)
+      setUserLoaded(true)
     })
 
     api.get('/payments/gettransferences', {
@@ -43,7 +48,6 @@ function Home() {
     }).then((response) => {
       setTransferences(response.data)
     })
-
   }, [navigate])
 
   const expandFuncs = () => {
@@ -57,23 +61,22 @@ function Home() {
   const { backgroundColor } = useBackgroundColor()
 
   const toggleAmountVisibility = () => {
-    setVisibility(!visibility); // Inverte o estado de visibilidade
+    setVisibility(!visibility) // Inverte o estado de visibilidade
   }
 
   // Combina as transferências e ordena por data
   const combinedTransfers = [...transferences.transferMade, ...transferences.transferReceived]
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
   const latestTransfers = combinedTransfers.slice(0, 4)
 
   return (
     <section className={styles.containerHome}>
-      <nav>
+      <nav className={styles.headerHome}>
+        <Options />
         <div className={styles.logoImage}>
           <img src={Logo} alt="Logo Milt Bank" />
         </div>
-        <i onClick={toggleAmountVisibility} className={`bi ${visibility ? 'bi-eye-slash' : 'bi-eye'} ${styles.hideAmount}`}></i>
-        <Options />
       </nav>
 
       <div className={styles.content}>
@@ -85,7 +88,9 @@ function Home() {
         ) : (
           <>
             <p className={styles.username}>Olá, {userData.name}!</p>
-            <p className={styles.amountField}>R$ <span className={styles.amount} id="amount"> {visibility ? '-----' : userData.amount}</span></p>
+            <div className={styles.amountContainer}>
+              <p className={styles.amountField}>R$ <span className={styles.amount} id="amount"> {visibility ? '-----' : userData.amount}</span></p><i onClick={toggleAmountVisibility} className={`bi ${visibility ? 'bi-eye-slash' : 'bi-eye'} ${styles.hideAmount}`}></i>
+            </div>
           </>
         )}
 
@@ -97,9 +102,9 @@ function Home() {
               <p className={styles.latestActions}>Últimas ações</p>
               <div className={styles.transactionItems}>
                 {latestTransfers.map((transfer, index) => {
-                  const isMade = transferences.transferMade.includes(transfer);
-                  const amountClass = isMade ? styles.transactionAmountMade : styles.transactionAmountReceived;
-                  const amountPrefix = isMade ? '-R$' : 'R$';
+                  const isMade = transferences.transferMade.includes(transfer)
+                  const amountClass = isMade ? styles.transactionAmountMade : styles.transactionAmountReceived
+                  const amountPrefix = isMade ? '-R$' : 'R$'
 
                   return (
                     <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
@@ -119,87 +124,43 @@ function Home() {
         </div>
 
         <div className={styles.functionalities}>
-          <p className={styles.text_finances}>Finanças</p>
-
           {!showMore && (
             <div className={styles.finances}>
               <Link to={'/pix'} className={styles.financeLink}>
-                <div className={`${styles.pix} ${styles.functionality}`}>
-                  <i className="bi bi-asterisk"></i>
-                  <p className={styles.textFinanceType}>Pix</p>
-                </div>
+                <PixIcon style={{ color: '#fff' }} />
               </Link>
-              <a href="" className={styles.financeLink}>
-                <div className={`${styles.pay} ${styles.functionality}`}>
-                  <i className="bi bi-upc"></i>
-                  <p className={styles.textFinanceType}>Pagar</p>
-                </div>
-              </a>
-              <a href="" className={styles.financeLink}>
-                <div className={`${styles.card} ${styles.functionality}`}>
-                  <i className="bi bi-credit-card"></i>
-                  <p className={styles.textFinanceType}>Cartões</p>
-                </div>
-              </a>
-              <div className={`${styles.show_more} ${styles.functionality}`} onClick={expandFuncs}>
-                <i className="bi bi-caret-left-fill"></i>
-                <p className={styles.textFinanceType}>Mais</p>
-              </div>
-            </div>
-          )}
-
-          {showMore && (
-            <div className={`${styles.container} ${styles.text_center}`}>
-
-              <i className={`bi bi-caret-right-fill ${styles.btn_close}`} onClick={closeFuncs}></i>
-
-              <div className="row">
-                <div className="col-3">
-                  <a href="" className={styles.financeLink}>
-                    <div className={`${styles.pay} ${styles.functionality}`}>
-                      <i className="bi bi-upc"></i>
-                      <p className={styles.textFinanceType}>Pagar</p>
-                    </div>
-                  </a>
-                </div>
-                <div className="col-3">
-                  <a href="" className={styles.financeLink}>
-                    <div className={`${styles.card} ${styles.functionality}`}>
-                      <i className="bi bi-credit-card"></i>
-                      <p className={styles.textFinanceType}>Cartões</p>
-                    </div>
-                  </a>
-                </div>
-                <div className="col-3">
-                  <a href="" className={styles.financeLink}>
-                    <div className={`${styles.card} ${styles.functionality}`}>
-                      <i className="bi bi-credit-card"></i>
-                      <p className={styles.textFinanceType}>Transferir</p>
-                    </div>
-                  </a>
-                </div>
-                <div className="col-3">
-                  <a href="" className={styles.financeLink}>
-                    <div className={`${styles.card} ${styles.functionality}`}>
-                      <i className="bi bi-credit-card"></i>
-                      <p className={styles.textFinanceType}>Câmbio</p>
-                    </div>
-                  </a>
-                </div>
-                <div className="col-3">
-                  <a href="" className={styles.financeLink}>
-                    <div className={`${styles.card} ${styles.functionality}`}>
-                      <i className="bi bi-credit-card"></i>
-                      <p className={styles.textFinanceType}>Cartões</p>
-                    </div>
-                  </a>
-                </div>
+              <Link to={'/cards'} className={styles.financeLink}>
+                <CreditCardIcon style={{ color: '#fff' }} />
+              </Link>
+              <div className={`${styles.show_more}`} onClick={expandFuncs}>
+                <MoreHorizIcon style={{ color: '#fff' }} />
               </div>
             </div>
           )}
         </div>
+
+        {showMore && (
+          <div className={`${styles.financesExpandedContainer}`}>
+            <ExpandLessIcon fontSize='large' className={styles.btn_close} onClick={closeFuncs} />
+
+            <div className={styles.financesExpanded}>
+              <div className={styles.financesOptions}>
+                <Link to={'/pix'} className={styles.financeLink}>
+                  <PixIcon style={{ color: '#fff' }} />
+                </Link>
+                <p className={styles.textFinanceType}>Pix</p>
+              </div>
+              <div className={styles.financesOptions}>
+                <Link to={'/cards'} className={styles.financeLink}>
+                  <CreditCardIcon style={{ color: '#fff' }} />
+                </Link>
+                <p className={styles.textFinanceType}>Cartões</p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-    </section >
+    </section>
   )
 }
 

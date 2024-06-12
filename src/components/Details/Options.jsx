@@ -29,18 +29,17 @@ export default function TemporaryDrawer() {
       <List>
         {['Minha conta', 'Configurações'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            {/* Use o Link do React Router para "Minha conta" e "Configurações" */}
             {index % 2 === 0 ? (
               <ListItemButton component={Link} to={'/myaccount'}>
                 <ListItemIcon>
-                  <PersonIcon />
+                  <PersonIcon style={{ color: '#fff' }} />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
             ) : (
               <ListItemButton component={Link} to={'/configurations'}>
                 <ListItemIcon>
-                  <SettingsIcon />
+                  <SettingsIcon style={{ color: '#fff' }} />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -50,7 +49,7 @@ export default function TemporaryDrawer() {
         ))}
         <ListItemButton onClick={logout}>
           <ListItemIcon>
-            <LogoutIcon />
+            <LogoutIcon style={{ color: '#fff' }} />
           </ListItemIcon>
           <ListItemText primary='Sair' />
         </ListItemButton>
@@ -61,8 +60,15 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <AccountCircleIcon fontSize='large' style={{ color: '#ccc' }} onClick={toggleDrawer(true)} />
-      <Drawer open={open} onClose={toggleDrawer(false)}>
+      <AccountCircleIcon fontSize='large' style={{ color: '#fff' }} onClick={toggleDrawer(true)} />
+      <Drawer open={open} onClose={toggleDrawer(false)}
+        PaperProps={{
+          sx: {
+            color: '#fff',
+            backgroundColor: '#F28907',
+            borderRadius: '0px 20px 20px 0px',
+          }
+        }}>
         {DrawerList}
       </Drawer>
     </div>
