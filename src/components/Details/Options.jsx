@@ -37,7 +37,7 @@ export default function TemporaryDrawer() {
                 <ListItemText primary={text} />
               </ListItemButton>
             ) : (
-              <ListItemButton component={Link} to={'/configurations'}>
+              <ListItemButton component={Link} to={'/user/configurations'}>
                 <ListItemIcon>
                   <SettingsIcon style={{ color: '#fff' }} />
                 </ListItemIcon>

@@ -76,7 +76,7 @@ export default function useAuth() {
     setAuthenticated(true)
     localStorage.setItem('token', JSON.stringify(data.token))
 
-    navigate('/home')
+    navigate('/user/home')
   }
 
   function logout() {

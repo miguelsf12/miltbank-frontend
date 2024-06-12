@@ -40,7 +40,7 @@ function RegisterKey() {
     <>
       <div className="row">
         <div className="col-4">
-          <Link to={'/pix'} className={styles.btn_back}><i className="bi bi-caret-left-fill"></i>Voltar</Link>
+          <Link to={'/user/pix'} className={styles.btn_back}><i className="bi bi-caret-left-fill"></i>Voltar</Link>
         </div>
       </div>
       <div className={styles.containerPixPay}>

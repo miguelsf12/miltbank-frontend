@@ -96,7 +96,7 @@ function TransferDetailPage() {
               {/* Adicionar essa funcionalidade GERAR PDF*/}
               <input className={styles.btn_generate} type="submit" value="GERAR PDF" />
 
-              <Link className={styles.btn_paymentconcluded} to={'/home'}>VOLTAR</Link>
+              <Link className={styles.btn_paymentconcluded} to={'/user/home'}>VOLTAR</Link>
             </>
           ) : (
             <p>Nenhuma transferência encontrada.</p>

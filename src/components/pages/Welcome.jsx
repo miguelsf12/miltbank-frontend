@@ -34,7 +34,7 @@ function Welcome() {
           </div>
           <div className={`carousel-item home ${styles.carousel_item}`}>
             <img
-              src="https://img.freepik.com/vetores-gratis/homem-de-negocios-com-moedas-e-folhas_24877-54740.jpg?w=826&t=st=1703254490~exp=1703255090~hmac=f5cc54cd1b1338cd37a27635466de70e147c7630fdb2937b1b04c808f284c7ad"
+              src="https://img.freepik.com/vetores-gratis/user/homem-de-negocios-com-moedas-e-folhas_24877-54740.jpg?w=826&t=st=1703254490~exp=1703255090~hmac=f5cc54cd1b1338cd37a27635466de70e147c7630fdb2937b1b04c808f284c7ad"
               className="d-block w-100" alt="..." />
           </div>
         </div>

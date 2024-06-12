@@ -10,7 +10,9 @@ import Register from './components/pages/Auth/Register'
 import Welcome from './components/pages/Welcome'
 import Message from './components/layout/Message'
 import ForgotPassword from './components/pages/Auth/ForgotPassword'
+
 import Home from './components/pages/User/Home'
+import Configurations from './components/pages/User/Configurations/Configurations'
 import Pix from './components/pages/PixPaymentMethod/Pix'
 import RegisterKey from './components/pages/PixPaymentMethod/RegisterKey'
 import PixPay from './components/pages/PixPaymentMethod/PixPay'
@@ -30,15 +32,16 @@ function App() {
         <Container>
           <Message />
           <Routes>
-            <Route path='/all-transfers' element={<ViewAllTransfers />}></Route>
-            <Route path='/transference/:id' element={<TransferDetailPage />}></Route>
-            <Route path='/paymentconcluded/:id' element={<PaymentConcluded />}></Route>
-            <Route path='/review' element={<Review />}></Route>
+            <Route path='/user/all-transfers' element={<ViewAllTransfers />}></Route>
+            <Route path='/user/transference/:id' element={<TransferDetailPage />}></Route>
+            <Route path='/payments/paymentconcluded/:id' element={<PaymentConcluded />}></Route>
+            <Route path='/payments/review' element={<Review />}></Route>
             <Route path='/confirmpayment' element={<ConfirmPayment />}></Route>
-            <Route path='/pixpay' element={<PixPay />}></Route>
-            <Route path='/registerkey' element={<RegisterKey />}></Route>
-            <Route path='/pix' element={<Pix />}></Route>
-            <Route path='/home' element={<Home />} />
+            <Route path='/user/user/pixpay' element={<PixPay />}></Route>
+            <Route path='/user/registerkey' element={<RegisterKey />}></Route>
+            <Route path='/user/pix' element={<Pix />}></Route>
+            <Route path='/user/configurations' element={<Configurations />}></Route>
+            <Route path='/user/home' element={<Home />} />
 
             <Route path='/forgotpassword' element={<ForgotPassword />} />
             <Route path='/login' element={<Login />} />

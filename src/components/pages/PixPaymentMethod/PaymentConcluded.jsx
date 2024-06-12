@@ -15,7 +15,6 @@ function PaymentConcluded() {
   // Configura o moment para usar o local PT-BR
   moment.locale('pt-br')
 
-
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) {
@@ -97,7 +96,7 @@ function PaymentConcluded() {
               {/* Adicionar essa funcionalidade GERAR PDF*/}
               <input className={styles.btn_generate} type="submit" value="GERAR PDF" />
 
-              <Link className={styles.btn_paymentconcluded} to={'/home'}>CONTINUAR</Link>
+              <Link className={styles.btn_paymentconcluded} to={'/user/home'}>CONTINUAR</Link>
             </>
           ) : (
             <p>Nenhuma transferência encontrada.</p>

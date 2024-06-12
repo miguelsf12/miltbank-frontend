@@ -7,7 +7,7 @@ const BACKGROUND_COLORS = {
   '/forgotpassword': '#F28907',
   '/register': '#F28907',
   '/': '#F28907',
-  '/home': '#FFF',
+  '/user/home': '#FFF',
   // Add more color mappings for future routes
 }
 

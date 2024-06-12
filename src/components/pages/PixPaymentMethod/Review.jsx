@@ -98,7 +98,7 @@ function Review() {
 
       <div className="row">
         <div className="col-4">
-          <Back toWhere={'/pix'} />
+          <Back toWhere={'/user/pix'} />
         </div>
         <div className="col-4">
           <p className={styles.text_header_pix_pay}>Pagar Com Pix</p>

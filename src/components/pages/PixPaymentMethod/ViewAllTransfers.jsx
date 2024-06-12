@@ -91,7 +91,7 @@ function ViewAllTransfers() {
     <section className={styles.container}>
       <div className={`row align-items-center ${styles.header}`}>
         <div className="col-4 d-flex justify-content-start">
-          <Back toWhere={'/home'} />
+          <Back toWhere={'/user/home'} />
         </div>
         <div className="col-4 d-flex justify-content-center">
           <p className={styles.text_header}>Extrato</p>
@@ -104,7 +104,7 @@ function ViewAllTransfers() {
           <div key={date} className={styles.dateGroup}>
             <p className={styles.dateHeader}>{date}</p>
             {transferences[date].map((transfer, index) => (
-              <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
+              <Link key={index} to={`/user/transference/${transfer._id}`} className={styles.transactionItem}>
                 {transfer.payer.id === userData._id ? (
                   <>
                     <p className={styles.transactionBeneficed}>Pix enviado para {transfer.receiver.name}</p>

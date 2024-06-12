@@ -52,7 +52,7 @@ function Pix() {
     <section className={styles.container}>
       <div className="row">
         <div className="col-4">
-          <Back toWhere={'/home'} />
+          <Back toWhere={'/user/home'} />
         </div>
         <div className="col-4">
           <p className={styles.text_header_pix}>Pix</p>
@@ -60,7 +60,7 @@ function Pix() {
       </div>
       <div className={`row pix ${styles.row} ${styles.pix}`}>
         <div className="col-4">
-          <Link to={'/registerkey'} className={styles.registerKeyLink}>
+          <Link to={'/user/registerkey'} className={styles.registerKeyLink}>
             <div className={styles.registerKey}>
               <i className="bi bi-key"></i>
               <p className={styles.textFinanceType}>Cadastrar pix</p>
@@ -86,7 +86,7 @@ function Pix() {
       </div>
       <div className={styles.containerPix}>
         <div className={`row pay ${styles.row} ${styles.pay}`}>
-          <Link to={'/pixpay'} className={styles.payPix}>
+          <Link to={'/user/user/pixpay'} className={styles.payPix}>
             <p>Pagar</p>
             <i className="bi bi-cash-coin"></i>
           </Link>
@@ -129,7 +129,7 @@ function Pix() {
                 const amountPrefix = isMade ? '-R$' : 'R$';
 
                 return (
-                  <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
+                  <Link key={index} to={`/user/transference/${transfer._id}`} className={styles.transactionItem}>
                     <p className={styles.transactionBeneficed}>
                       {isMade ? `Pix enviado para ${transfer.receiver.name}` : `Pix recebido de ${transfer.payer.name}`}
                     </p>
@@ -139,7 +139,7 @@ function Pix() {
                   </Link>
                 )
               })}
-              <Link to={'/all-transfers'} className={styles.moreTransactions}>VER TUDO</Link>
+              <Link to={'/user/all-transfers'} className={styles.moreTransactions}>VER TUDO</Link>
             </div>
           </>
         )}
