@@ -30,7 +30,7 @@ export default function TemporaryDrawer() {
         {['Minha conta', 'Configurações'].map((text, index) => (
           <ListItem key={text} disablePadding>
             {index % 2 === 0 ? (
-              <ListItemButton component={Link} to={'/myaccount'}>
+              <ListItemButton component={Link} to={'/user/myaccount'}>
                 <ListItemIcon>
                   <PersonIcon style={{ color: '#fff' }} />
                 </ListItemIcon>
