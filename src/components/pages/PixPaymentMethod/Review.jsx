@@ -6,7 +6,7 @@ import InputCurrency from '../../form/InputCurrency'
 import { Context } from '../../../context/UserContext'
 import PulseLoader from "react-spinners/PulseLoader";
 import logo from '../../../assets/img/logo.png'
-import Back from '../../Details/Back'
+import Back from '../../utilities/Back'
 
 function Review() {
   const [receiverData, setReceiverData] = useState({})

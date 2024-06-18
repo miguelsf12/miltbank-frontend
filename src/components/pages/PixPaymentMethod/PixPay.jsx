@@ -4,7 +4,7 @@ import Input from '../../form/Input';
 import styles from './PixPay.module.css'
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../../../utils/api';
-import Back from '../../Details/Back'
+import Back from '../../utilities/Back'
 
 function PixPay() {
   const [key, setKey] = useState({})

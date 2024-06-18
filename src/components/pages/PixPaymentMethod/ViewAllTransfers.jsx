@@ -3,7 +3,7 @@ import { Context } from "../../../context/UserContext"
 import { Link, useNavigate } from "react-router-dom"
 import api from "../../../utils/api"
 import styles from './ViewAllTransfers.module.css'
-import Back from "../../Details/Back"
+import Back from "../../utilities/Back"
 
 function ViewAllTransfers() {
   const navigate = useNavigate()

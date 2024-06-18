@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import PulseLoader from "react-spinners/PulseLoader"
 import api from '../../../utils/api'
 import InputCurrency from '../../form/InputCurrency'
-import Back from '../../Details/Back'
+import Back from '../../utilities/Back'
 
 function ConfirmPayment() {
   const [userData, setUserData] = useState(null)

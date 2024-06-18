@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import api from '../../../utils/api'
 import PulseLoader from "react-spinners/PulseLoader"
-import Back from '../../Details/Back'
+import Back from '../../utilities/Back'
 
 function Pix() {
   const [userData, setUserData] = useState(null)

@@ -4,7 +4,7 @@ import { useState, useContext, useEffect } from 'react'
 import { Context } from '../../../context/UserContext'
 import { Link, useNavigate } from 'react-router-dom'
 import PulseLoader from 'react-spinners/PulseLoader'
-import Options from '../../Details/Options'
+import Options from '../../utilities/Options'
 
 import Logo from '../../../assets/img/logo.png'
 import api from '../../../utils/api'
@@ -107,7 +107,7 @@ function Home() {
                   const amountPrefix = isMade ? '-R$' : 'R$'
 
                   return (
-                    <Link key={index} to={`/transference/${transfer._id}`} className={styles.transactionItem}>
+                    <Link key={index} to={`/user/transference/${transfer._id}`} className={styles.transactionItem}>
                       <p className={styles.transactionBeneficed}>
                         {isMade ? `Pix enviado para ${transfer.receiver.name}` : `Pix recebido de ${transfer.payer.name}`}
                       </p>
@@ -117,7 +117,7 @@ function Home() {
                     </Link>
                   )
                 })}
-                <Link to={'/all-transfers'} className={styles.moreTransactions}>VER TUDO</Link>
+                <Link to={'/user/all-transfers'} className={styles.moreTransactions}>VER TUDO</Link>
               </div>
             </>
           )}
@@ -126,7 +126,7 @@ function Home() {
         <div className={styles.functionalities}>
           {!showMore && (
             <div className={styles.finances}>
-              <Link to={'/pix'} className={styles.financeLink}>
+              <Link to={'/user/pix'} className={styles.financeLink}>
                 <PixIcon style={{ color: '#fff' }} />
               </Link>
               <Link to={'/cards'} className={styles.financeLink}>
@@ -145,7 +145,7 @@ function Home() {
 
             <div className={styles.financesExpanded}>
               <div className={styles.financesOptions}>
-                <Link to={'/pix'} className={styles.financeLink}>
+                <Link to={'/user/pix'} className={styles.financeLink}>
                   <PixIcon style={{ color: '#fff' }} />
                 </Link>
                 <p className={styles.textFinanceType}>Pix</p>

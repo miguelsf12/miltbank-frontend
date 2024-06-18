@@ -4,7 +4,7 @@ import { Context } from '../../../context/UserContext'
 import Input from '../../form/Input'
 import useBackgroundColor from '../../../hooks/useBackgroundColor'
 import { Link } from 'react-router-dom'
-import Loading from '../../layout/Loading'
+import Loading from '../../utilities/Loading'
 
 function Login() {
   const [user, setUser] = useState({})
