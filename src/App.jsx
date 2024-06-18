@@ -41,6 +41,7 @@ function App() {
             <Route path='/user/user/pixpay' element={<PixPay />}></Route>
             <Route path='/user/registerkey' element={<RegisterKey />}></Route>
             <Route path='/user/pix' element={<Pix />}></Route>
+            <Route path='/user/myaccount' element={<MyAccount />}></Route>
             <Route path='/user/configurations' element={<Configurations />}></Route>
             <Route path='/user/home' element={<Home />} />
 
