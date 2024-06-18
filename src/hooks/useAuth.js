@@ -33,6 +33,7 @@ export default function useAuth() {
     }
 
     setFlashMessage(msgText, msgType)
+    navigate('/')
   }
 
   async function login(user) {
