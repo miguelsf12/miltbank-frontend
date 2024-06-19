@@ -82,7 +82,7 @@ export default function MyAccount() {
               </p>
 
               <p className={styles.dataUser}>Email: <span className={styles.spanDatas}>{userData.email}</span></p>
-              <p className={styles.dataUser}>Telefone: <span className={styles.spanDatas}>{userData.telefone}</span></p>
+              <p className={styles.dataUser}>Telefone: <span className={styles.spanDatas}>{!userData.telefone ? 'Adicione um número' : userData.telefone}</span></p>
             </>
           )}
 
@@ -95,21 +95,27 @@ export default function MyAccount() {
             <Link style={{ textDecoration: 'none', color: '#1F2440', fontSize: '1.3em', fontWeight: '700' }} to={'/user/configurations'}>Configurações</Link>
             <p style={{ fontSize: '1.1em' }}>Caso queria alterar seus dados</p>
           </div>
-          <ArrowForwardIosIcon style={{ display: '' }} />
+          <Link style={{ textDecoration: 'none', color: '#1F2440', fontSize: '1.3em', fontWeight: '700' }} to={'/user/configurations'}>
+            <ArrowForwardIosIcon style={{ display: '' }} />
+          </Link>
         </div>
         <div className={styles.funcionalities}>
           <div className={styles.funcionalitiesOptions}>
             <Link style={{ textDecoration: 'none', color: '#1F2440', fontSize: '1.3em', fontWeight: '700' }} to={'/user/cards'}>Meus cartões</Link>
             <p style={{ fontSize: '1.1em' }}>Acesse a página dos seus cartões</p>
           </div>
-          <ArrowForwardIosIcon style={{ display: '' }} />
+          <Link style={{ textDecoration: 'none', color: '#1F2440', fontSize: '1.3em', fontWeight: '700' }} to={'/user/cards'}>
+            <ArrowForwardIosIcon style={{ display: '' }} />
+          </Link>
         </div>
         <div className={styles.funcionalities}>
           <div className={styles.funcionalitiesOptions}>
             <Link style={{ textDecoration: 'none', color: '#1F2440', fontSize: '1.3em', fontWeight: '700' }} to={'/user/home'}>Ajuda</Link>
             <p style={{ fontSize: '1.1em' }}>Fale com um atendente</p>
           </div>
-          <ArrowForwardIosIcon style={{ display: '' }} />
+          <Link style={{ textDecoration: 'none', color: '#1F2440', fontSize: '1.3em', fontWeight: '700' }} to={'/user/home'}>
+            <ArrowForwardIosIcon style={{ display: '' }} />
+          </Link>
         </div>
       </div>
     </section >
