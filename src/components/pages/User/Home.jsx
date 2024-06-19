@@ -1,5 +1,7 @@
 import styles from './Home.module.css'
-import { useState, useEffect } from 'react'
+import useBackgroundColor from '../../../hooks/useBackgroundColor'
+import { useState, useContext, useEffect } from 'react'
+import { Context } from '../../../context/UserContext'
 import { Link, useNavigate } from 'react-router-dom'
 import PulseLoader from 'react-spinners/PulseLoader'
 import Options from '../../utilities/Options'
@@ -13,6 +15,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 
 function Home() {
+  const { logout } = useContext(Context)
   const [visibility, setVisibility] = useState(false)
   const [showMore, setShowMore] = useState(false)
   const navigate = useNavigate()
@@ -54,6 +57,8 @@ function Home() {
   const closeFuncs = () => {
     setShowMore(false)
   }
+
+  const { backgroundColor } = useBackgroundColor()
 
   const toggleAmountVisibility = () => {
     setVisibility(!visibility) // Inverte o estado de visibilidade
