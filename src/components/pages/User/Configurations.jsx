@@ -68,7 +68,7 @@ function Configurations() {
           <div style={{ marginBottom: '30px', marginTop: '10px' }}>
             <div onClick={handleImageClick} style={{ cursor: 'pointer', display: 'inline-block' }}>
               {userData && userData.image ? (
-                <Badge overlap="circular" badgeContent={<EditIcon style={{ color: '#1F2440', width: 30, height: 30, marginRight: 4, marginTop: 2 }} />} >
+                <Badge overlap="circular" badgeContent={<EditIcon style={{ backgroundColor: 'fff', borderRadius: '50%', color: '#1F2440', width: 30, height: 30, marginRight: 4, marginTop: 85 }} />} >
                   <img src={preview ? preview : `${process.env.REACT_APP_API}/images/user/${userData.image}`} alt="Uploaded" style={{ width: 60, height: 60, borderRadius: '50%', objectFit: 'cover' }} />
                 </Badge>
               ) : (
