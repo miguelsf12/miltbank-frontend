@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30%;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.contentProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.usernameMyAccount {
+  color: var(--laranja);
+  margin: 0px;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.funcionalities {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+  border-bottom: 1px solid var(--laranja);
+}
+
+.funcionalitiesOptions {
+  display: flex;
+  flex-direction: column;
+}
+
+.userField {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.dataUser {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+  font-size: 1.2em;
+  border-bottom: 1px solid var(--laranja);
+}
+
+.dataUser i {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+.spanDatasHidden {
+  width: 144.531px;
+  height: 28.797px;
+  margin-left: 10px;
+  margin-right: 20px;
+  background-color: var(--cinza);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.spanDatas {
+  margin-left: 10px;
+  margin-right: 20px;
+}
