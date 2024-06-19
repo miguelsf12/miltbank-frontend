@@ -12,8 +12,10 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/
 import InputMask from 'react-input-mask'
 import styles from './FormConfig.module.css'
 import api from '../../utils/api'
+import useFlashMessage from '../../hooks/useFlashMessage'
 
-export default function FormConfig({ image, userData }) {
+export default function FormConfig({ image }) {
+  const { setFlashMessage } = useFlashMessage()
   const [showPassword, setShowPassword] = useState(false)
   const [isCep, setIsCep] = useState(true)
   const [formData, setFormData] = useState({
@@ -122,8 +124,11 @@ export default function FormConfig({ image, userData }) {
           'Content-Type': 'multipart/form-data',
         },
       })
+      setFlashMessage(response.data.message, response.data.msgType)
     } catch (error) {
       console.error('Erro ao enviar dados:', error)
+      const msgType = 'error'
+      setFlashMessage(error.response.data.message, msgType)
     }
   }
 
