@@ -10,19 +10,41 @@ import ListItemText from '@mui/material/ListItemText';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../context/UserContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import api from '../../utils/api';
+import { Badge } from '@mui/material';
 
 
 export default function TemporaryDrawer() {
   const { logout } = useContext(Context)
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
+  const [userData, setUserData] = useState(null)
+  const [userLoaded, setUserLoaded] = useState(false)
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      return navigate('/login')
+    }
+
+    api.get('/users/checkuser', {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`
+      }
+    }).then((response) => {
+      setUserData(response.data)
+      setUserLoaded(true)
+    })
+
+  }, [navigate])
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
@@ -60,7 +82,18 @@ export default function TemporaryDrawer() {
 
   return (
     <div>
-      <AccountCircleIcon fontSize='large' style={{ color: '#fff' }} onClick={toggleDrawer(true)} />
+      {/* <AccountCircleIcon fontSize='large' style={{ color: '#fff' }} onClick={toggleDrawer(true)} /> */}
+      {userData && userData.image ? (
+        <>
+          <Badge overlap="circular" onClick={toggleDrawer(true)}>
+            <img src={`${process.env.REACT_APP_API}/images/user/${userData.image}`} alt="Uploaded" style={{ width: 60, height: 60, borderRadius: '50%', objectFit: 'cover' }} />
+          </Badge>
+        </>
+      ) : (
+        <Badge overlap="circular" onClick={toggleDrawer(true)}>
+          <AccountCircleIcon fontSize="large" style={{ borderRadius: '50%', color: '#ccc', width: 60, height: 60 }} />
+        </Badge>
+      )}
       <Drawer open={open} onClose={toggleDrawer(false)}
         PaperProps={{
           sx: {
