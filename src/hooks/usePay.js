@@ -45,7 +45,7 @@ export default function usePay() {
         return response.data
       })
 
-      navigate(`/confirmpayment?key=${key}`)
+      navigate(`/payments/confirmpayment?key=${key}`)
     } catch (error) {
       const msgText = error.response.data.message
       const msgType = 'error'
@@ -59,7 +59,7 @@ export default function usePay() {
         return response.data
       })
 
-      navigate(`/review?key=${key}&amount=${amount}`)
+      navigate(`/payments/review?key=${key}&amount=${amount}`)
       // navigate('/review')
     } catch (error) {
       const msgText = error.response.data.message
@@ -78,7 +78,7 @@ export default function usePay() {
         return response.data
       })
 
-      navigate(`/paymentconcluded/${data.transferenceId}`);
+      navigate(`/payments/paymentconcluded/${data.transferenceId}`);
     } catch (error) {
       msgText = error.response.data.message
       msgType = 'error'
