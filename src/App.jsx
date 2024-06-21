@@ -37,7 +37,7 @@ function App() {
             <Route path='/user/transference/:id' element={<TransferDetailPage />}></Route>
             <Route path='/payments/paymentconcluded/:id' element={<PaymentConcluded />}></Route>
             <Route path='/payments/review' element={<Review />}></Route>
-            <Route path='/confirmpayment' element={<ConfirmPayment />}></Route>
+            <Route path='/payments/confirmpayment' element={<ConfirmPayment />}></Route>
             <Route path='/user/user/pixpay' element={<PixPay />}></Route>
             <Route path='/user/registerkey' element={<RegisterKey />}></Route>
             <Route path='/user/pix' element={<Pix />}></Route>
