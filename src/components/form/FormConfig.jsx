@@ -124,6 +124,7 @@ export default function FormConfig({ image }) {
           'Content-Type': 'multipart/form-data',
         },
       })
+
       setFlashMessage(response.data.message, response.data.msgType)
     } catch (error) {
       console.error('Erro ao enviar dados:', error)
