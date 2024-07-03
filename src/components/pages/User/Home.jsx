@@ -12,6 +12,7 @@ import PixIcon from '@mui/icons-material/Pix'
 import CreditCardIcon from '@mui/icons-material/CreditCard'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 
 function Home() {
   const [visibility, setVisibility] = useState(false)
@@ -149,10 +150,16 @@ function Home() {
                 <p className={styles.textFinanceType}>Pix</p>
               </div>
               <div className={styles.financesOptions}>
-                <Link to={'/cards'} className={styles.financeLink}>
+                <Link to={'/user/cards'} className={styles.financeLink}>
                   <CreditCardIcon style={{ color: '#fff' }} />
                 </Link>
                 <p className={styles.textFinanceType}>Cartões</p>
+              </div>
+              <div className={styles.financesOptions}>
+                <Link to={'/user/exchange'} className={styles.financeLink}>
+                  <CurrencyExchangeIcon style={{ color: '#fff' }} />
+                </Link>
+                <p className={styles.textFinanceType}>Câmbio</p>
               </div>
             </div>
           </div>

@@ -22,6 +22,7 @@ import Review from './components/pages/PixPaymentMethod/Review'
 import PaymentConcluded from './components/pages/PixPaymentMethod/PaymentConcluded'
 import TransferDetailPage from './components/pages/PixPaymentMethod/TransferDetailPage'
 import ViewAllTransfers from './components/pages/PixPaymentMethod/ViewAllTransfers'
+import Exchange from './components/pages/User/Exchange'
 
 // Context
 import { UserProvider } from './context/UserContext'
@@ -38,9 +39,10 @@ function App() {
             <Route path='/payments/paymentconcluded/:id' element={<PaymentConcluded />}></Route>
             <Route path='/payments/review' element={<Review />}></Route>
             <Route path='/payments/confirmpayment' element={<ConfirmPayment />}></Route>
-            <Route path='/user/user/pixpay' element={<PixPay />}></Route>
+            <Route path='/user/pixpay' element={<PixPay />}></Route>
             <Route path='/user/registerkey' element={<RegisterKey />}></Route>
             <Route path='/user/pix' element={<Pix />}></Route>
+            <Route path='/user/exchange' element={<Exchange />}></Route>
             <Route path='/user/myaccount' element={<MyAccount />}></Route>
             <Route path='/user/configurations' element={<Configurations />}></Route>
             <Route path='/user/home' element={<Home />} />
