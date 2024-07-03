@@ -86,7 +86,7 @@ function Pix() {
       </div>
       <div className={styles.containerPix}>
         <div className={`row pay ${styles.row} ${styles.pay}`}>
-          <Link to={'/user/user/pixpay'} className={styles.payPix}>
+          <Link to={'/user/pixpay'} className={styles.payPix}>
             <p>Pagar</p>
             <i className="bi bi-cash-coin"></i>
           </Link>

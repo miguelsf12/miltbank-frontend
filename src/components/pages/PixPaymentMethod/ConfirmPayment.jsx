@@ -9,6 +9,7 @@ import Back from '../../utilities/Back'
 
 function ConfirmPayment() {
   const [userData, setUserData] = useState(null)
+  const [amount, setAmount] = useState("0,00")
   const navigate = useNavigate()
   const [userLoaded, setUserLoaded] = useState(false)
   const [receiverData, setReceiverData] = useState({})
@@ -21,7 +22,10 @@ function ConfirmPayment() {
     setVisibility(!visibility) // Inverte o estado de visibilidade
   }
 
-  const [amount, setAmount] = useState("0,00")
+  // Função para adicionar pontos de milhar
+  const addThousandSeparator = (numberString) => {
+    return numberString.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+  }
 
   const handleChange = (event) => {
     const inputValue = event.target.value
@@ -46,11 +50,6 @@ function ConfirmPayment() {
 
     // Atualizar valor do campo
     setAmount(formattedValue)
-  }
-
-  // Função para adicionar pontos de milhar
-  const addThousandSeparator = (numberString) => {
-    return numberString.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
 
   const chavePIX = new URLSearchParams(location.search).get('key')
@@ -123,7 +122,7 @@ function ConfirmPayment() {
           <form onSubmit={handleSubmit}>
             <p className={styles.receiverName}>Pagar {receiverData.name}</p>
             {/* <Input type="text" name="amount" handleOnChange={handleChange} /> */}
-            <InputCurrency handleOnChange={handleChange} value={amount} />
+            <InputCurrency handleOnChange={handleChange} value={amount} currencySymbol={"R$"} />
             <input className={styles.btn_payPix} type="submit" value="CONTINUAR" />
           </form>
         </div>

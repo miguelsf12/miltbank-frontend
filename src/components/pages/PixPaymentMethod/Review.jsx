@@ -106,7 +106,7 @@ function Review() {
       </div>
       <div className={styles.containerReview}>
         <form onSubmit={handleSubmit}>
-          <InputCurrency handleOnChange={handleChange} value={amount} />
+          <InputCurrency handleOnChange={handleChange} value={amount} currencySymbol={"R$"}/>
           {!receiverLoaded ? (
             <PulseLoader color="#F28907" />
           ) : (

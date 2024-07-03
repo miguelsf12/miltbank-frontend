@@ -49,7 +49,7 @@ function TransferDetailPage() {
             <>
               <p className={styles.sendPix}><i class="bi bi-check-circle"></i></p>
 
-              <InputCurrency className={styles.inputDisable} value={transfer.amount} disabled={true} />
+              <InputCurrency className={styles.inputDisable} value={transfer.amount} disabled={true} currencySymbol={"R$"}/>
 
               <div className={styles.aboutTransfer}>
                 <p className={styles.aboutTitle}>Sobre a transação</p>

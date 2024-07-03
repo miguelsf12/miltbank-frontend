@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-function InputCurrency({ className, value, handleOnChange, disabled }) {
+function InputCurrency({ className, value, handleOnChange, disabled, currencySymbol }) {
   const inputRef = useRef(null);
 
   const handleClick = () => {
@@ -15,7 +15,7 @@ function InputCurrency({ className, value, handleOnChange, disabled }) {
         className={className}
         type="text"
         name="amount"
-        value={`R$ ${value}`}
+        value={`${currencySymbol} ${value}`}
         onChange={handleOnChange}
         placeholder="R$ 0,00"
         ref={inputRef}
