@@ -37,6 +37,10 @@
   line-height: normal;
 }
 
+.container {
+  height: 90vh;
+}
+
 .carousel_item {
   /* width: 200px; */
   height: 200px;
