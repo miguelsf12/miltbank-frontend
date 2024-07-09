@@ -10,9 +10,10 @@ import api from '../../../utils/api'
 
 import PixIcon from '@mui/icons-material/Pix'
 import CreditCardIcon from '@mui/icons-material/CreditCard'
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
-import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange'
+import WalletIcon from '@mui/icons-material/Wallet'
 
 function Home() {
   const [visibility, setVisibility] = useState(false)
@@ -160,6 +161,15 @@ function Home() {
                   <CurrencyExchangeIcon style={{ color: '#fff' }} />
                 </Link>
                 <p className={styles.textFinanceType}>Câmbio</p>
+              </div>
+              <div className={styles.financesOptions}>
+                <Link to={'/user/wallet'} className={styles.financeLink}>
+                  <WalletIcon style={{ color: '#fff' }} />
+                </Link>
+                <p className={styles.textFinanceType}>
+                  <span style={{ display: 'block' }}>Carteira</span>
+                  <span style={{ display: 'block' }}>Internacional</span>
+                </p>
               </div>
             </div>
           </div>

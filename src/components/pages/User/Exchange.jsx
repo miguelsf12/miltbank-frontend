@@ -4,8 +4,9 @@ import { Button, FormControl, InputLabel, Select, MenuItem, OutlinedInput, Dialo
 import styles from './Exchange.module.css'
 import Back from '../../utilities/Back'
 import InputCurrency from "../../form/InputCurrency"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import useFlashMessage from "../../../hooks/useFlashMessage"
+import WalletIcon from '@mui/icons-material/Wallet'
 
 export default function Exchange() {
   const { setFlashMessage } = useFlashMessage()
@@ -257,6 +258,17 @@ export default function Exchange() {
             </Button>
           </DialogActions>
         </Dialog>
+
+        <div className={styles.financesOptions}>
+          <Link to={'/user/wallet'} className={styles.financeLink}>
+            <WalletIcon fontSize="large" style={{ color: '#f28907' }} />
+          </Link>
+          <p className={styles.textFinanceType}>
+            <span style={{ display: 'block' }}>Carteira</span>
+            <span style={{ display: 'block' }}>Internacional</span>
+          </p>
+        </div>
+        {/* Acessar carteira internacional */}
       </div>
     </section>
   )

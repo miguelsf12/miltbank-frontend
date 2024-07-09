@@ -28,3 +28,31 @@
 .inputAmount {
   width: 100%;
 }
+
+.financesOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.financeLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #f7ba6f;
+  border-radius: 50px;
+  padding: 8px;
+  width: 70px;
+  height: 70px;
+}
+
+.textFinanceType {
+  margin-top: 10px;
+  color: var(--laranja);
+  text-align: center;
+  font-size: 1em;
+  font-weight: 700;
+}
