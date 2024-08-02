@@ -23,6 +23,7 @@ import PaymentConcluded from './components/pages/PixPaymentMethod/PaymentConclud
 import TransferDetailPage from './components/pages/PixPaymentMethod/TransferDetailPage'
 import ViewAllTransfers from './components/pages/PixPaymentMethod/ViewAllTransfers'
 import Exchange from './components/pages/User/Exchange'
+import CurrencyInformation from './components/pages/User/CurrencyInformation'
 import Wallet from './components/pages/User/Wallet'
 
 // Context
@@ -43,6 +44,7 @@ function App() {
             <Route path='/user/pixpay' element={<PixPay />}></Route>
             <Route path='/user/registerkey' element={<RegisterKey />}></Route>
             <Route path='/user/pix' element={<Pix />}></Route>
+            <Route path='/user/wallet/coin/:simboloDamoeda' element={<CurrencyInformation />}></Route>
             <Route path='/user/wallet' element={<Wallet />}></Route>
             <Route path='/user/exchange' element={<Exchange />}></Route>
             <Route path='/user/myaccount' element={<MyAccount />}></Route>

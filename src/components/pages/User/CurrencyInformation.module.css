@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  width: 90vw;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.headerTittle {
+  margin: 0px;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.amountField {
+  font-size: 2em;
+
+}
