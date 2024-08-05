@@ -8,7 +8,7 @@ export default function useAuth() {
   const [authenticated, setAuthenticated] = useState(false)
   const { setFlashMessage } = useFlashMessage()
   const navigate = useNavigate()
-
+  
   useEffect(() => {
     const token = localStorage.getItem('token')
 
